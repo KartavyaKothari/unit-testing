@@ -31,6 +31,9 @@ int main(int argc, char const *argv[]) {
     	printf("2nd number : ");
     	scanf("%f",&b);
 
+        isLargeInt(a,b);
+        isFloat(a,b);
+
     	printf("\n");
     	printf("Enter choice 1. Addition\n");
     	printf("		   2. Subtraction\n");
