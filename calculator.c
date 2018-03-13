@@ -1,6 +1,45 @@
 #include<stdio.h>
 
 int main(int argc, char const *argv[]) {
-    /* code */
-    return 0;
+
+	float a,b;
+      int ch;
+
+	printf("Enter two numbers : \n\n");
+
+	printf("1st number : ");
+	scanf("%f",&a);
+
+	printf("2nd number : ");
+	scanf("%f",&b);
+
+	printf("\n");
+	printf("Enter choice 1. Addition\n");
+	printf("		   2. Subtraction\n");
+	printf("		   3. Multiplication\n");
+	printf("		   4. Division\n");
+	printf("\n");
+
+	scanf("%d",&ch);
+	printf("\n");
+
+	switch (ch) {
+
+		case 1 : printf("Addition = %f ",(a+b));
+			   break;
+
+		case 2 : printf("Subtraction = %f",(a-b));
+			   break;
+
+		case 3 : printf("Multiplication = %f",(a*b));
+			   break;
+
+		case 4 : printf("Division = %f",(a/b));
+			   break;
+
+		default : printf("Invalid Input");
+
+	}
+
+      return 0;
 }
