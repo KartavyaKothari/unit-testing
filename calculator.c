@@ -5,6 +5,14 @@ void isFloat(float a, float b){
         printf("One of numbers is non integer\n");
         goto START;
     }
+
+void isLargeInt(int a,int b) {
+
+      if(a > 65535 || b > 65535) {
+
+            printf("Number is of datatype large int \n");
+            goto START;
+      }
 }
 
 int main(int argc, char const *argv[]) {
