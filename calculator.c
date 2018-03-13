@@ -1,45 +1,56 @@
 #include<stdio.h>
 
+void isFloat(float a, float b){
+    if(a != (int)a || b != (int)b){
+        printf("One of numbers is non integer\n");
+        goto START;
+    }
+}
+
 int main(int argc, char const *argv[]) {
 
 	float a,b;
-      int ch;
+    int ch;
 
-	printf("Enter two numbers : \n\n");
+    START:;
 
-	printf("1st number : ");
-	scanf("%f",&a);
+	while (1) {
+        printf("Enter two numbers : \n\n");
 
-	printf("2nd number : ");
-	scanf("%f",&b);
+    	printf("1st number : ");
+    	scanf("%f",&a);
 
-	printf("\n");
-	printf("Enter choice 1. Addition\n");
-	printf("		   2. Subtraction\n");
-	printf("		   3. Multiplication\n");
-	printf("		   4. Division\n");
-	printf("\n");
+    	printf("2nd number : ");
+    	scanf("%f",&b);
 
-	scanf("%d",&ch);
-	printf("\n");
+    	printf("\n");
+    	printf("Enter choice 1. Addition\n");
+    	printf("		   2. Subtraction\n");
+    	printf("		   3. Multiplication\n");
+    	printf("		   4. Division\n");
+    	printf("\n");
 
-	switch (ch) {
+    	scanf("%d",&ch);
+    	printf("\n");
 
-		case 1 : printf("Addition = %f ",(a+b));
-			   break;
+    	switch (ch) {
 
-		case 2 : printf("Subtraction = %f",(a-b));
-			   break;
+    		case 1 : printf("Addition = %f ",(a+b));
+    			   break;
 
-		case 3 : printf("Multiplication = %f",(a*b));
-			   break;
+    		case 2 : printf("Subtraction = %f",(a-b));
+    			   break;
 
-		case 4 : printf("Division = %f",(a/b));
-			   break;
+    		case 3 : printf("Multiplication = %f",(a*b));
+    			   break;
 
-		default : printf("Invalid Input");
+    		case 4 : printf("Division = %f",(a/b));
+    			   break;
 
-	}
+    		default : printf("Invalid Input");
+
+    	}
+    }
 
       return 0;
 }
