@@ -1,22 +1,6 @@
 #include<stdio.h>
 
-void isFloat(float a, float b){
-    if(a != (int)a || b != (int)b){
-        printf("One of numbers is non integer\n");
-        goto START;
-    }
-
-void isLargeInt(int a,int b) {
-
-      if(a > 65535 || b > 65535) {
-
-            printf("Number is of datatype large int \n");
-            goto START;
-      }
-}
-
 int main(int argc, char const *argv[]) {
-
 	float a,b;
     int ch;
 
@@ -31,8 +15,15 @@ int main(int argc, char const *argv[]) {
     	printf("2nd number : ");
     	scanf("%f",&b);
 
-        isLargeInt(a,b);
-        isFloat(a,b);
+        if(a != (int)a || b != (int)b){
+            printf("One of numbers is non integer\n");
+            goto START;
+        }
+
+        if(a > 65535 || b > 65535) {
+              printf("Number is of datatype large int \n");
+              goto START;
+        }
 
     	printf("\n");
     	printf("Enter choice 1. Addition\n");
@@ -59,9 +50,7 @@ int main(int argc, char const *argv[]) {
     			   break;
 
     		default : printf("Invalid Input");
-
     	}
     }
-
-      return 0;
+     return 0;
 }
