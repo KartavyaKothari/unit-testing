@@ -1,56 +1,60 @@
 #include<stdio.h>
 
+int checkIfUserWantsToContinue(char res){
+    if(res=='n'||res=='N') return 0;
+    else return 1;
+}
+
 int main(int argc, char const *argv[]) {
 	float a,b;
     int ch;
+    char res;
+    int i = 0;
 
-    START:;
+	while (1) {i++;if(i>20)break;
+        printf("\nEnter two numbers, choice and if you want to contine (y/n):\n");
+        printf("1. Addition\n");
+    	printf("2. Subtraction\n");
+    	printf("3. Multiplication\n");
+    	printf("4. Division\n");
 
-	while (1) {
-        printf("Enter two numbers : \n\n");
+    	scanf("%f %f %d %c",&a,&b,&ch,&res);
 
-    	printf("1st number : ");
-    	scanf("%f",&a);
-
-    	printf("2nd number : ");
-    	scanf("%f",&b);
+        if(a != (int)a || b != (int)b){
+            printf("%.2f %.2f %d %c\n", a,b,ch,res);
+        }else printf("%d %d %d %c\n", (int)a,(int)b,ch,res);
 
         if(a != (int)a || b != (int)b){
             printf("One of numbers is non integer\n");
-            goto START;
+            if(checkIfUserWantsToContinue(res)) continue;
+            else break;
         }
 
         if(a > 65535 || b > 65535) {
-              printf("Number is of datatype large int \n");
-              goto START;
+            printf("Number is of datatype large int \n");
+            if(checkIfUserWantsToContinue(res)) continue;
+            else break;
         }
 
-    	printf("\n");
-    	printf("Enter choice 1. Addition\n");
-    	printf("		   2. Subtraction\n");
-    	printf("		   3. Multiplication\n");
-    	printf("		   4. Division\n");
-    	printf("\n");
-
-    	scanf("%d",&ch);
-    	printf("\n");
-
     	switch (ch) {
+    		case 1: printf("Addition = %d\n",(int)(a+b));
+    			    break;
+    		case 2: printf("Subtraction = %d\n",(int)(a-b));
+    			    break;
+    		case 3: printf("Multiplication = %d\n",(int)(a*b));
+    			    break;
+    		case 4: if(b==0){
+                        printf("Division by zero error\n");
+                        continue;
+                    }
+                    printf("Division = %.2f\n",(a/b));
+    			    break;
 
-    		case 1 : printf("Addition = %f ",(a+b));
-    			   break;
-
-    		case 2 : printf("Subtraction = %f",(a-b));
-    			   break;
-
-    		case 3 : printf("Multiplication = %f",(a*b));
-    			   break;
-
-    		case 4 : printf("Division = %f",(a/b));
-    			   break;
-
-    		default : printf("Invalid Input");
+    		default: printf("Invalid Choice\n\n");
     	}
+
+        if(checkIfUserWantsToContinue(res)) continue;
+        else break;
     }
-     return 0;
+    return 0;
 }
